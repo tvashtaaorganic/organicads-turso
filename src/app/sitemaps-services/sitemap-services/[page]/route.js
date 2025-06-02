@@ -3,7 +3,8 @@ import turso from 'lib/turso';
 
 export async function GET(request, { params }) {
   const { page } = params;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+// const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://organicads.in';
 
   const pageSize = 1000;
   const offset = (parseInt(page) - 1) * pageSize;
@@ -15,7 +16,7 @@ export async function GET(request, { params }) {
   const urls = result.rows.map((row) => {
     return `
       <url>
-        <loc>${baseUrl}/${row.slug}</loc>
+        <loc>${baseUrl}/services/${row.slug}</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
       </url>
     `;

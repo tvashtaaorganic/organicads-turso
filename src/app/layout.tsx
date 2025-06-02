@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { GoogleAnalytics } from '@next/third-parties/google'
  
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
           `}
         </Script>
       </body>
+       <GoogleAnalytics gaId="G-QQZXPCK2FW" />
     </html>
   );
 }

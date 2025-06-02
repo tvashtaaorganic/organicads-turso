@@ -14,7 +14,8 @@ function escapeXml(unsafe) {
 }
 
 async function generateStaticSitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+//  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://organicads.in';
 
   const staticPages = [
     '/',

@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import turso from 'lib/turso';
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+ // const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://organicads.in';
 
   // Fetch count of all slugs
   const result = await turso.execute({ sql: 'SELECT COUNT(*) as total FROM pages' });
