@@ -3,14 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-<<<<<<< HEAD
-import { GoogleAnalytics } from '@next/third-parties/google'
- 
-=======
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { DynamicSchema } from "@/components/DynamicSchema"; // ⬅️ new client component
+import { DynamicSchema } from "@/components/DynamicSchema"; // Dynamic schema component
 
->>>>>>> b214e5e (first commit)
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -40,14 +35,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-<<<<<<< HEAD
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
-      >
-        {children}
-        
-        {/* Dynamic canonical URL script */}
-=======
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -89,13 +76,12 @@ export default function RootLayout({
           ></iframe>
         </noscript>
 
-        {/* ✅ Dynamic JSON-LD Schema injected here */}
+        {/* ✅ Dynamic JSON-LD Schema */}
         <DynamicSchema />
 
         {children}
 
         {/* ✅ Canonical Fix Script */}
->>>>>>> b214e5e (first commit)
         <Script id="dynamic-canonical">
           {`
             document.addEventListener('DOMContentLoaded', function() {
@@ -111,13 +97,10 @@ export default function RootLayout({
             });
           `}
         </Script>
-<<<<<<< HEAD
-=======
 
+        {/* ✅ Google Analytics */}
         <GoogleAnalytics gaId="G-QQZXPCK2FW" />
->>>>>>> b214e5e (first commit)
       </body>
-       <GoogleAnalytics gaId="G-QQZXPCK2FW" />
     </html>
   );
 }
