@@ -1,4 +1,3 @@
-import { headers } from 'next/headers';
 
 const routeMetadata = {
   '/': {
@@ -145,12 +144,43 @@ const routeMetadata = {
   // Add more routes as needed
 };
 
-// Default metadata if route is not found in our mapping
+// defaultMetadata should also have a name
 const defaultMetadata = {
+  name: 'Organic Ads Technologies',
   title: 'Organic Ads Technologies',
   description: 'Welcome to Organic Ads Technologies',
   keywords: 'SEO, PPC, content marketing, Digital marketing, Web Design, Web Development, Whatsapp marketing, Social media marketing',
 };
+
+export function generateLocalBusinessSchema(pathname) {
+  const metadata = routeMetadata[pathname] || defaultMetadata;
+
+  const baseSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": metadata.name, // use dynamic name
+    "image": "https://res.cloudinary.com/s2ucdn/image/upload/v1734515561/organicads-logo_n5yg79.png",
+    "url": `https://www.organicads.in${pathname}`,
+    "telephone": "+91-7259404569",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lenkappa Building, Talakadu Subbarao Beedi, Nelamangala",
+      "addressLocality": "Bangalore",
+      "addressRegion": "KA",
+      "postalCode": "562123",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.facebook.com/organicads1",
+      "https://www.threads.com/@organicads1",
+      "https://www.instagram.com/organicads1",
+      "https://www.linkedin.com/company/organicads1"
+    ],
+    "description": metadata.description
+  };
+
+  return JSON.stringify(baseSchema);
+}
 
 export function generateMetadata(pathname) {
   // Get metadata for current route or use default

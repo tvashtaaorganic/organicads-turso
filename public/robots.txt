@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://organicads.in/sitemap.xml
+Sitemap: https://organicads.in/sitemaps-services/sitemap_index.xml
