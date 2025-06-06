@@ -115,7 +115,7 @@ const DigitalMarketingService = ({ service }) => {
         <Card className="items-start justify-around border-dashed border border-gray-300 shadow bg-white py-4 rounded-md">
           <CardContent className="text-center w-full font-poppins">
             <h3 className="text-xl md:text-2xl font-medium text-black mb-3">
-              Get Customized {service.name} On Request, Call Now: +91 7250404569
+              Get Customized {service.name} On Request, Call Now: +91 7259404569
             </h3>
             <p className="text-justify text-gray-700">
               Looking for tailored solutions to boost your online presence? Our
