@@ -44,11 +44,10 @@ export default function RootLayout({
           content="fdD6fl5cXCKKEUwPxLxT1gXLOSeUDz0F5Pa1RrvSlB0"
         />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="canonical" href="https://organicads.in/" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-        {/* ✅ Google Tag Manager (head) */}
+        {/* Google Tag Manager (head) */}
         <Script
           id="gtm-head"
           strategy="afterInteractive"
@@ -66,7 +65,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        {/* ✅ Google Tag Manager (noscript) */}
+        {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KDZZX9M3"
@@ -76,29 +75,12 @@ export default function RootLayout({
           ></iframe>
         </noscript>
 
-        {/* ✅ Dynamic JSON-LD Schema */}
+        {/* Dynamic JSON-LD Schema */}
         <DynamicSchema />
 
         {children}
 
-        {/* ✅ Canonical Fix Script */}
-        <Script id="dynamic-canonical">
-          {`
-            document.addEventListener('DOMContentLoaded', function() {
-              const canonicalLink = document.querySelector('link[rel="canonical"]');
-              if (canonicalLink) {
-                const currentPath = canonicalLink.getAttribute('href');
-                const protocol = window.location.protocol;
-                const host = window.location.host;
-                if (!currentPath.startsWith('http')) {
-                  canonicalLink.href = protocol + '//' + host + currentPath;
-                }
-              }
-            });
-          `}
-        </Script>
-
-        {/* ✅ Google Analytics */}
+        {/* Google Analytics */}
         <GoogleAnalytics gaId="G-QQZXPCK2FW" />
       </body>
     </html>
