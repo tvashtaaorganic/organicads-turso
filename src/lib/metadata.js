@@ -144,6 +144,7 @@ const routeMetadata = {
   // Add more routes as needed
 };
 
+
 // defaultMetadata should also have a name
 const defaultMetadata = {
   name: 'Organic Ads Technologies',
@@ -158,7 +159,7 @@ export function generateLocalBusinessSchema(pathname) {
   const baseSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": metadata.name, // use dynamic name
+    "name": metadata.name,
     "image": "https://res.cloudinary.com/s2ucdn/image/upload/v1734515561/organicads-logo_n5yg79.png",
     "url": `https://www.organicads.in${pathname}`,
     "telephone": "+91-7259404569",
@@ -183,7 +184,6 @@ export function generateLocalBusinessSchema(pathname) {
 }
 
 export function generateMetadata(pathname) {
-  // Get metadata for current route or use default
   const metadata = routeMetadata[pathname] || defaultMetadata;
   
   return {
@@ -191,16 +191,14 @@ export function generateMetadata(pathname) {
     description: metadata.description,
     keywords: metadata.keywords,
     
-    // The canonical URL is just the pathname, which will be completed 
-    // by the middleware and the dynamic script in layout.js
     alternates: {
-      canonical: pathname,
+      canonical: `https://www.organicads.in${pathname}`, // Directly set the full canonical URL here
     },
     
     openGraph: {
       title: metadata.title,
       description: metadata.description,
-      url: pathname,
+      url: `https://www.organicads.in${pathname}`,
       siteName: 'Organic Ads Technologies',
       locale: 'en_US',
       type: 'website',
@@ -227,8 +225,8 @@ export function generateMetadata(pathname) {
 // Function to use in page components that need the full URL
 export function getDynamicMetadata(pathname) {
   const headersList = headers();
-  const baseUrl = headersList.get('x-base-url') || '';
-  const fullUrl = baseUrl + pathname;
+  const baseUrl = headersList.get('x-base-url') || 'https://www.organicads.in';
+  const fullUrl = `${baseUrl}${pathname}`;
   
   const metadata = generateMetadata(pathname);
   
