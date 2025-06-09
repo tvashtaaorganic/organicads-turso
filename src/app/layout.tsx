@@ -45,7 +45,6 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         {/* Google Tag Manager (head) */}
         <Script
